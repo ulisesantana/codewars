@@ -1,17 +1,12 @@
 {
-  "name": "ts-boilerplate",
+  "name": "codewars",
   "version": "1.0.0",
-  "description": "TypeScript boilerplate",
-  "main": "build/index.js",
+  "description": "Codewars katas",
   "scripts": {
-    "prestart": "npm run build",
-    "start": "node build/index.js",
-    "dev": "npm run build -- --watch & nodemon build/index.js",
-    "build": "npm run lint && tsc",
     "lint": "./node_modules/.bin/eslint . --ext .ts",
     "lint:fix": "npm run lint -- --fix",
-    "test": "jest",
-    "test:tdd": "npm t -- --watchAll"
+    "new:kata": "node_modules/.bin/hygen kata new",
+    "test": "mocha -r ts-node/register 'src/**/*test.ts'"
   },
   "repository": {
     "type": "git",
@@ -25,9 +20,11 @@
   },
   "homepage": "https://github.com/ulisesantana/ts-boilerplate#readme",
   "devDependencies": {
-    "@types/jest": "^26.0.5",
+    "@types/chai": "^4.2.12",
+    "@types/mocha": "^8.0.3",
     "@typescript-eslint/eslint-plugin": "^3.6.1",
     "@typescript-eslint/parser": "^3.6.1",
+    "chai": "^4.2.0",
     "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
@@ -36,12 +33,10 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "husky": "^4.2.5",
-    "jest": "^26.1.0",
-    "lint-staged": "^10.2.11",
+    "hygen": "^6.0.4",
+    "mocha": "^8.1.3",
     "prettier": "^2.0.5",
-    "ts-jest": "^26.1.3",
-    "typescript": "^3.9.7",
-    "nodemon": "^1.19.4"
+    "ts-node": "^9.0.0",
+    "typescript": "^3.9.7"
   }
 }
