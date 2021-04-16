@@ -1,12 +1,11 @@
-import { xo } from "./solution";
-import { assert } from "chai";
+import { xo } from './solution'
 
-describe("xo", function () {
-  it("Basic Tests", function () {
-    assert.strictEqual<boolean>(xo("xo"), true);
-    assert.strictEqual<boolean>(xo("xxOo"), true);
-    assert.strictEqual<boolean>(xo("xxxm"), false);
-    assert.strictEqual<boolean>(xo("Oo"), false);
-    assert.strictEqual<boolean>(xo("ooom"), false);
-  });
-});
+describe('xo', function () {
+  it('Basic Tests', function () {
+    expect(xo('xo')).toBeTruthy()
+    expect(xo('xxOo')).toBeTruthy()
+    expect(xo('xxxm')).toBeFalsy()
+    expect(xo('Oo')).toBeFalsy()
+    expect(xo('ooom')).toBeFalsy()
+  })
+})

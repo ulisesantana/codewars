@@ -3,40 +3,43 @@
   "version": "1.0.0",
   "description": "Codewars katas",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint . --ext .ts",
-    "lint:fix": "npm run lint -- --fix",
     "new:kata": "node_modules/.bin/hygen kata new",
-    "test": "mocha -r ts-node/register 'src/**/*test.ts'"
+    "prepare": "npm run build",
+    "prestart": "npm run build",
+    "start": "node build/index.js",
+    "dev": "npm run build -- --watch & nodemon build/index.js",
+    "build": "npm run lint && npm test && tsc",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "jest --verbose",
+    "test:watch": "npm t -- --watchAll",
+    "test:coverage": "npm t -- --coverage"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ulisesantana/ts-boilerplate.git"
+    "url": "git+https://github.com/ulisesantana/codewars.git"
   },
   "keywords": [],
   "author": "Ulises Santana <ulisesantana@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ulisesantana/ts-boilerplate/issues"
+    "url": "https://github.com/ulisesantana/codewars/issues"
   },
-  "homepage": "https://github.com/ulisesantana/ts-boilerplate#readme",
+  "homepage": "https://github.com/ulisesantana/codewars#readme",
   "devDependencies": {
-    "@types/chai": "^4.2.12",
-    "@types/mocha": "^8.0.3",
-    "@typescript-eslint/eslint-plugin": "^3.6.1",
-    "@typescript-eslint/parser": "^3.6.1",
-    "chai": "^4.2.0",
-    "eslint": "^7.5.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.22.0",
+    "@types/jest": "^26.0.5",
+    "@types/node": "^14.14.10",
+    "@typescript-eslint/eslint-plugin": "^4.16.1",
+    "@typescript-eslint/parser": "^4.16.1",
+    "eslint": "^7.21.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-promise": "^4.3.1",
     "hygen": "^6.0.4",
-    "mocha": "^8.1.3",
-    "prettier": "^2.0.5",
-    "ts-node": "^9.0.0",
+    "jest": "^26.1.0",
+    "nodemon": "^1.19.4",
+    "ts-jest": "^26.1.3",
     "typescript": "^3.9.7"
   }
 }
